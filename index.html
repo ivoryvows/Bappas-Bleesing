@@ -24,7 +24,7 @@ body {
   font-family:"Cormorant Garamond",serif;
   background:var(--cream); overflow-x:hidden;
 }
-body.locked { overflow:hidden; }
+body.locked { overflow:hidden; touch-action:none; }
 
 .music-toggle {
   position:fixed; right:16px; bottom:18px; z-index:1100;
@@ -79,33 +79,17 @@ body.locked { overflow:hidden; }
 }
 
 /* WEBSITE PAGES BACKGROUNDS */
-.page-section {
-  position:relative;
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  padding: 30px 10px;
-}
-
-/* Page 1 Background */
-.page-1 {
-  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/d8cm02.jpeg");
-}
-
-/* Page 2 Background */
-.page-2 {
-  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/lkqv47.jpeg");
-}
-
-/* Page 3 Background */
-.page-3 {
-  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/d8cm02.jpeg");
-}
-
 #site {
   position:relative; isolation:isolate; min-height:100vh;
-  background:var(--cream);
+  background:#f8ead0 url("https://files.catbox.moe/8tvv01.png") center top/100% auto repeat;
 }
+
+.page-section {
+  position:relative;
+  background:url("https://files.catbox.moe/8tvv01.png") center top/100% auto repeat;
+  padding: 25px 10px;
+}
+
 section { position:relative; padding:12px 10px; }
 .section-inner { width:min(92%,600px); margin:auto; position:relative; }
 
@@ -542,27 +526,25 @@ h2 {
     opened = true;
 
     startMusic();
+    
+    // Video setup & autoplay on tap
     movie.currentTime = 0.03;
     movie.muted = false;
 
     const hideCover = () => {
       cover.classList.add("gone");
-      document.body.classList.remove("locked");
     };
 
-    const playMovie = movie.play();
-
-    if (playMovie && playMovie.then) {
-      playMovie.then(hideCover).catch(() => {
+    const playPromise = movie.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        hideCover();
+      }).catch((err) => {
+        // Fallback: try muted autoplay if browser strictly blocks unmuted sound
         movie.muted = true;
-        const retry = movie.play();
-        if (retry && retry.then) {
-          retry.then(hideCover).catch(() => {
-            opened = false;
-          });
-        } else {
+        movie.play().then(hideCover).catch(() => {
           hideCover();
-        }
+        });
       });
     } else {
       hideCover();
@@ -584,9 +566,9 @@ h2 {
     autoScrolled = true;
     document.body.classList.remove("locked");
 
-    const firstGanpati = document.querySelector("#site > .page-section");
+    const firstGanpati = document.querySelector("#site .page-1 .ganpati-center-wrap");
     if (firstGanpati) {
-      firstGanpati.scrollIntoView({ behavior:"smooth", block:"start" });
+      firstGanpati.scrollIntoView({ behavior:"smooth", block:"center" });
     }
   }
 
