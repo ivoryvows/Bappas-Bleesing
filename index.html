@@ -18,7 +18,7 @@
   --cream:#f8ead0;
 }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; scroll-padding-top:10px; }
+html { scroll-behavior:smooth; scroll-padding-top:0px; }
 body {
   margin:0; color:var(--ink);
   font-family:"Cormorant Garamond",serif;
@@ -87,10 +87,10 @@ body.locked { overflow:hidden; touch-action:none; }
 .page-section {
   position:relative;
   background:url("https://files.catbox.moe/8tvv01.png") center top/100% auto repeat;
-  padding: 25px 10px;
+  padding: 10px 10px 15px;
 }
 
-section { position:relative; padding:12px 10px; }
+section { position:relative; padding:4px 10px; }
 .section-inner { width:min(92%,600px); margin:auto; position:relative; }
 
 .royal-frame {
@@ -115,12 +115,12 @@ h2 {
   font-size:clamp(1.35rem,4vw,1.85rem);
   line-height:1.05; letter-spacing:.035em; margin:0 0 5px;
 }
-.ornament { text-align:center; color:#a77a38; margin:4px auto 9px; font-size:.8rem; }
+.ornament { text-align:center; color:#a77a38; margin:2px auto 6px; font-size:.8rem; }
 
-/* LARGER GANPATI */
+/* LARGER GANPATI WITH ZERO TOP GAP */
 .ganpati-center-wrap {
   display:flex; justify-content:center; align-items:center;
-  text-align:center; padding:12px 0;
+  text-align:center; padding:4px 0 2px;
 }
 .ganpati-center {
   display:block; width:clamp(170px, 45vw, 240px);
@@ -134,20 +134,20 @@ h2 {
 }
 
 /* WELCOME */
-.welcome { padding:17px 13px; text-align:center; }
-.welcome-copy p { font-size:1rem; line-height:1.3; margin:5px 0; }
+.welcome { padding:14px 12px; text-align:center; }
+.welcome-copy p { font-size:1rem; line-height:1.25; margin:4px 0; }
 .signature {
   font-family:"Great Vibes",cursive; font-size:2.15rem;
-  color:var(--wine); margin-top:6px;
+  color:var(--wine); margin-top:4px;
 }
 
 /* SCRATCH */
 .scratch-layout {
   display:grid; grid-template-columns:1fr 1fr;
-  align-items:center; gap:12px; padding:15px 13px;
+  align-items:center; gap:8px; padding:12px 10px;
 }
 .scratch-info { text-align:center; }
-.scratch-info p { font-size:.93rem; line-height:1.25; margin:5px auto; }
+.scratch-info p { font-size:.93rem; line-height:1.2; margin:4px auto; }
 .scratch-wrap {
   position:relative; width:min(100%,240px); aspect-ratio:1.45;
   margin:auto; overflow:hidden; border:2px double #a77b3b;
@@ -174,20 +174,20 @@ h2 {
 }
 .scratch-hint {
   font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
-  margin-top:7px; text-align:center; color:#865e32;
+  margin-top:5px; text-align:center; color:#865e32;
 }
 
-/* SPACING */
-.section-gap { height:16px; }
+/* TIGHT SPACING BETWEEN FRAMES */
+.section-gap { height:6px; }
 
 /* COUNTDOWN */
-.countdown-section { text-align:center; padding:4px 10px 15px; }
+.countdown-section { text-align:center; padding:2px 10px 10px; }
 .countdown-grid {
   display:flex; justify-content:center; gap:8px;
-  flex-wrap:wrap; margin-top:12px;
+  flex-wrap:wrap; margin-top:8px;
 }
 .time-card {
-  width:clamp(60px,16vw,76px); min-height:65px; padding:9px 3px 6px;
+  width:clamp(60px,16vw,76px); min-height:65px; padding:8px 3px 5px;
   background:linear-gradient(145deg,#fff7e3,#f3dfb5 50%,#fff5dc);
   border:1px solid #b78a45; border-radius:12px;
   box-shadow:0 2px 6px #70451c14; text-align:center;
@@ -198,53 +198,53 @@ h2 {
 }
 .time-label {
   display:block; font-size:.52rem; letter-spacing:.08em;
-  text-transform:uppercase; margin-top:5px; color:#6d4a31;
+  text-transform:uppercase; margin-top:4px; color:#6d4a31;
 }
 
 /* TIMELINE IN FRAME */
-.timeline-section { padding:5px 10px 14px; text-align:center; }
-.timeline-frame { padding:18px 12px 13px; }
+.timeline-section { padding:2px 10px 10px; text-align:center; }
+.timeline-frame { padding:14px 10px 10px; }
 .timeline {
   display:flex; justify-content:space-around; align-items:flex-start;
-  gap:8px; margin-top:12px; flex-wrap:wrap;
+  gap:8px; margin-top:8px; flex-wrap:wrap;
 }
-.event { flex:1; min-width:85px; max-width:170px; text-align:center; padding:5px 3px; }
+.event { flex:1; min-width:85px; max-width:170px; text-align:center; padding:4px 2px; }
 .event-time { font-size:.8rem; letter-spacing:.04em; color:#8b5d31; font-weight:600; }
-.event h3 { font-size:1.1rem; font-weight:500; color:var(--wine); margin:4px 0; }
+.event h3 { font-size:1.1rem; font-weight:500; color:var(--wine); margin:2px 0; }
 .event p { font-size:.84rem; line-height:1.2; margin:0 auto; }
 
 /* VENUE AND DRESS */
 .details-grid {
-  display:grid; grid-template-columns:1fr; gap:14px;
+  display:grid; grid-template-columns:1fr; gap:10px;
   width:min(92%,480px); margin:auto;
 }
-.detail-card { padding:16px 13px; min-width:0; }
+.detail-card { padding:14px 12px; min-width:0; }
 .venue-content { display:flex; flex-direction:column; align-items:center; text-align:center; }
 .venue-image {
-  width:min(100%,220px); height:105px; object-fit:cover;
+  width:min(100%,220px); height:100px; object-fit:cover;
   border:1px solid #c39a54; box-shadow:0 2px 8px #9c6a3730;
-  margin:4px 0 7px;
+  margin:4px 0 6px;
 }
 .venue-name { font-size:1.2rem; color:var(--wine); margin:2px 0 3px; }
-.venue-address { font-size:.87rem; line-height:1.3; margin:0 0 9px; }
+.venue-address { font-size:.87rem; line-height:1.25; margin:0 0 7px; }
 .map-link {
   display:inline-block; text-decoration:none; color:#fff0ce;
   background:linear-gradient(#8c2031,#5c101e); border:1px solid #d6ad62;
-  border-radius:20px; padding:8px 13px;
+  border-radius:20px; padding:7px 12px;
   font-family:"DM Sans",sans-serif; font-size:.62rem; letter-spacing:.05em;
 }
-.dress-intro { text-align:center; margin:0 0 7px; font-size:.9rem; line-height:1.3; }
-.dress-cols { display:flex; flex-direction:column; gap:10px; margin-top:9px; text-align:center; }
-.dress-cols h3 { font-size:1.05rem; color:var(--wine); margin:0 0 3px; }
-.dress-cols p { font-size:.9rem; line-height:1.25; margin:0; }
-.shades { font-size:.82rem; text-align:center; margin:11px 0 0; line-height:1.35; color:#85572f; }
+.dress-intro { text-align:center; margin:0 0 6px; font-size:.9rem; line-height:1.25; }
+.dress-cols { display:flex; flex-direction:column; gap:8px; margin-top:6px; text-align:center; }
+.dress-cols h3 { font-size:1.05rem; color:var(--wine); margin:0 0 2px; }
+.dress-cols p { font-size:.9rem; line-height:1.2; margin:0; }
+.shades { font-size:.82rem; text-align:center; margin:8px 0 0; line-height:1.3; color:#85572f; }
 
 /* FINAL */
-.final { text-align:center; padding:5px 12px 20px; }
-.final-frame { padding:22px 15px; }
-.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.5rem,8vw,3.4rem); letter-spacing:0; margin:3px 0; }
-.final p { font-size:1rem; line-height:1.35; max-width:420px; margin:0 auto; }
-.final-sign { font-family:"Great Vibes",cursive; font-size:2.1rem; color:var(--wine); margin-top:8px; }
+.final { text-align:center; padding:2px 10px 15px; }
+.final-frame { padding:18px 12px; }
+.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.5rem,8vw,3.4rem); letter-spacing:0; margin:2px 0; }
+.final p { font-size:1rem; line-height:1.3; max-width:420px; margin:0 auto; }
+.final-sign { font-family:"Great Vibes",cursive; font-size:2.1rem; color:var(--wine); margin-top:6px; }
 
 /* PETALS */
 #petals { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
@@ -270,13 +270,13 @@ h2 {
 }
 
 @media(min-width:621px) {
-  .details-grid { grid-template-columns:1fr 1fr; width:min(94%,640px); gap:14px; }
-  .venue-image { width:100%; height:110px; }
+  .details-grid { grid-template-columns:1fr 1fr; width:min(94%,640px); gap:12px; }
+  .venue-image { width:100%; height:105px; }
 }
 @media(max-width:620px) {
-  .scratch-layout { grid-template-columns:1fr; padding:15px 12px; gap:10px; }
-  .scratch-wrap { width:min(100%,260px); }
-  .section-gap { height:16px; }
+  .scratch-layout { grid-template-columns:1fr; padding:10px 8px; gap:8px; }
+  .scratch-wrap { width:min(100%,250px); }
+  .section-gap { height:6px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .ganpati-center,.music-toggle.playing { animation:none; }
@@ -315,7 +315,7 @@ h2 {
 
   <!-- PAGE 1: Welcome & Scratch -->
   <div class="page-section page-1">
-    <div class="ganpati-center-wrap">
+    <div class="ganpati-center-wrap" id="topGanpati">
       <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa">
     </div>
 
@@ -540,7 +540,6 @@ h2 {
       playPromise.then(() => {
         hideCover();
       }).catch((err) => {
-        // Fallback: try muted autoplay if browser strictly blocks unmuted sound
         movie.muted = true;
         movie.play().then(hideCover).catch(() => {
           hideCover();
@@ -566,9 +565,9 @@ h2 {
     autoScrolled = true;
     document.body.classList.remove("locked");
 
-    const firstGanpati = document.querySelector("#site .page-1 .ganpati-center-wrap");
+    const firstGanpati = document.getElementById("topGanpati");
     if (firstGanpati) {
-      firstGanpati.scrollIntoView({ behavior:"smooth", block:"center" });
+      firstGanpati.scrollIntoView({ behavior:"smooth", block:"start" });
     }
   }
 
