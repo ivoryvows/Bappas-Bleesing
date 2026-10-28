@@ -131,6 +131,11 @@ h2 {
   filter:drop-shadow(0 6px 12px #73461840);
   animation:ganpatiFloat 3.8s ease-in-out infinite;
 }
+/* Last Ganpati Bappa size bada kiya gaya hai */
+.ganpati-large {
+  width:clamp(210px, 55vw, 290px);
+  max-height:310px;
+}
 @keyframes ganpatiFloat {
   0%,100% { transform:translateY(0) scale(1); }
   50% { transform:translateY(-7px) scale(1.025); }
@@ -163,20 +168,20 @@ h2 {
   background:radial-gradient(ellipse at 50% 35%,#fff2c8,#e5c17c 52%,#bc8a45);
   color:#711d2c;
 }
-/* Badi aur khoobsurat Date Styling */
+/* Aur zyada Badi, Bold aur Khoobsurat Date Styling */
 .scratch-date {
   display:flex; flex-direction:column; align-items:center;
-  justify-content:center; gap:2px; line-height:1;
+  justify-content:center; gap:3px; line-height:1;
   font-family:"Cormorant Garamond",serif;
   animation: datePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 @keyframes datePop {
-  0% { transform: scale(0.7); opacity: 0; }
+  0% { transform: scale(0.6); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
-.scratch-date .day { font-size:2.4rem; font-weight:700; color:#711d2c; letter-spacing:0.02em; }
-.scratch-date .month { font-size:1.15rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#8b5d31; }
-.scratch-date .year { font-size:1rem; font-weight:600; letter-spacing:0.12em; color:#711d2c; }
+.scratch-date .day { font-size:2.8rem; font-weight:700; color:#711d2c; letter-spacing:0.03em; }
+.scratch-date .month { font-size:1.3rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#8b5d31; }
+.scratch-date .year { font-size:1.15rem; font-weight:700; letter-spacing:0.15em; color:#711d2c; }
 
 #scratchCanvas {
   position:absolute; inset:0; width:100%; height:100%;
@@ -190,11 +195,11 @@ h2 {
 /* TIGHT SPACING BETWEEN SECTIONS */
 .section-gap { height:2px; }
 
-/* COUNTDOWN SECTION */
-.countdown-section { text-align:center; padding:1px 10px 6px; }
+/* COUNTDOWN SECTION - Timeline se proper distance ke liye padding adjust ki gayi hai */
+.countdown-section { text-align:center; padding:1px 10px 14px; }
 .countdown-grid {
   display:flex; justify-content:center; gap:10px;
-  flex-wrap:wrap; margin-top:6px;
+  flex-wrap:wrap; margin-top:8px;
 }
 .time-card {
   width:clamp(65px, 17vw, 82px);
@@ -223,8 +228,8 @@ h2 {
   text-transform:uppercase; margin-top:6px; color:#f6dfad;
 }
 
-/* TIMELINE SECTION - Thoda Upar Shift Kiya gaya hai */
-.timeline-section { padding:0 10px 10px; text-align:center; margin-top: -6px; }
+/* TIMELINE SECTION */
+.timeline-section { padding:0 10px 10px; text-align:center; }
 .timeline-frame { padding:10px 10px 8px; }
 .timeline {
   display:flex; justify-content:space-around; align-items:flex-start;
@@ -235,7 +240,7 @@ h2 {
 .event h3 { font-size:1.1rem; font-weight:500; color:var(--wine); margin:2px 0; }
 .event p { font-size:.84rem; line-height:1.2; margin:0 auto; }
 
-/* VENUE AND DRESS - Venue frame ki height choti ki gayi hai */
+/* VENUE AND DRESS */
 .details-grid {
   display:grid; grid-template-columns:1fr; gap:10px;
   width:min(92%,480px); margin:auto;
@@ -261,12 +266,12 @@ h2 {
 .dress-cols p { font-size:.85rem; line-height:1.2; margin:0; }
 .shades { font-size:.8rem; text-align:center; margin:6px 0 0; line-height:1.2; color:#85572f; }
 
-/* FINAL */
+/* FINAL - Last frame ko aur zyada chota aur compact banaya gaya hai */
 .final { text-align:center; padding:2px 10px 15px; }
-.final-frame { padding:14px 12px; }
-.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.3rem,7vw,3.2rem); letter-spacing:0; margin:2px 0; }
-.final p { font-size:.95rem; line-height:1.25; max-width:420px; margin:0 auto; }
-.final-sign { font-family:"Great Vibes",cursive; font-size:2rem; color:var(--wine); margin-top:4px; }
+.final-frame { padding:10px 10px; }
+.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.1rem,6.5vw,2.8rem); letter-spacing:0; margin:1px 0; }
+.final p { font-size:.88rem; line-height:1.2; max-width:390px; margin:0 auto; }
+.final-sign { font-family:"Great Vibes",cursive; font-size:1.8rem; color:var(--wine); margin-top:3px; }
 
 /* PETALS & CONFETTI */
 #petals { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
@@ -291,21 +296,19 @@ h2 {
   100% { transform:translate3d(var(--drift),105vh,0) scale(1.2) rotate(360deg); opacity:0; }
 }
 
-/* SCRATCH REVEAL GOLDEN CONFETTI PARTICLES */
+/* SCRATCH REVEAL TOP-DOWN GOLDEN & RED CONFETTI RAIN */
 .scratch-confetti {
   position: absolute;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #fff2c8 0%, #bd9147 100%);
-  border-radius: 50%;
+  width: 7px;
+  height: 9px;
+  border-radius: 2px;
   pointer-events: none;
   z-index: 5;
-  box-shadow: 0 0 6px #ffd700;
-  animation: confettiBurst 1s ease-out forwards;
+  animation: rainConfetti linear forwards;
 }
-@keyframes confettiBurst {
-  0% { transform: translate(0, 0) scale(1); opacity: 1; }
-  100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+@keyframes rainConfetti {
+  0% { transform: translate(var(--startX), -20px) rotate(0deg); opacity: 1; }
+  100% { transform: translate(var(--endX), 240px) rotate(720deg); opacity: 0; }
 }
 
 @media(min-width:621px) {
@@ -449,7 +452,7 @@ h2 {
   <!-- PAGE 3: Venue, Dress Code & Final -->
   <div class="page-section page-3">
     <div class="ganpati-center-wrap" style="padding-top: 0px; margin-top: -10px;">
-      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
+      <img class="ganpati-center ganpati-large" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
 
     <div class="details-grid">
@@ -480,7 +483,7 @@ h2 {
 
     <div class="section-gap"></div>
     <div class="ganpati-center-wrap" style="padding-top: 0px; margin-top: -10px;">
-      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
+      <img class="ganpati-center ganpati-large" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
 
     <section class="final" id="final">
@@ -774,32 +777,35 @@ h2 {
     for (let i = 3; i < pixels.length; i += 4) {
       if (pixels[i] < 30) cleared++;
     }
-    // Changed threshold to 50% as requested
     if (cleared / (pixels.length / 4) >= .5) revealDate();
   }
 
-  function triggerGoldenConfetti() {
+  // Upr se Golden aur Red Confetti girne ka effect
+  function triggerGoldenRedRain() {
     const rect = wrap.getBoundingClientRect();
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
+    const colors = ["#bd9147", "#711d2c", "#ffe89d", "#e3bd69", "#a8203a"];
 
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 35; i++) {
       const particle = document.createElement("span");
       particle.className = "scratch-confetti";
-      particle.style.left = centerX + "px";
-      particle.style.top = centerY + "px";
+      
+      const startX = Math.random() * rect.width;
+      const endX = startX + (Math.random() * 60 - 30);
+      
+      particle.style.left = startX + "px";
+      particle.style.top = "0px";
+      particle.style.setProperty("--startX", "0px");
+      particle.style.setProperty("--endX", (endX - startX) + "px");
+      
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      particle.style.background = color;
+      particle.style.boxShadow = `0 0 6px ${color}`;
 
-      const angle = Math.random() * Math.PI * 2;
-      const distance = 40 + Math.random() * 70;
-      const dx = Math.cos(angle) * distance;
-      const dy = Math.sin(angle) * distance;
-
-      particle.style.setProperty("--dx", dx + "px");
-      particle.style.setProperty("--dy", dy + "px");
-      particle.style.animationDuration = (0.6 + Math.random() * 0.5) + "s";
+      particle.style.animationDuration = (0.7 + Math.random() * 0.8) + "s";
+      particle.style.animationDelay = (Math.random() * 0.3) + "s";
 
       wrap.appendChild(particle);
-      setTimeout(() => particle.remove(), 1100);
+      setTimeout(() => particle.remove(), 1600);
     }
   }
 
@@ -809,7 +815,7 @@ h2 {
     context.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.pointerEvents = "none";
     hint.textContent = "✦  3 JANUARY 2027  ✦";
-    triggerGoldenConfetti();
+    triggerGoldenRedRain();
   }
 
   canvas.addEventListener("pointerdown", event => {
