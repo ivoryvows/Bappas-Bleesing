@@ -131,7 +131,6 @@ h2 {
   filter:drop-shadow(0 6px 12px #73461840);
   animation:ganpatiFloat 3.8s ease-in-out infinite;
 }
-/* Last Ganpati Bappa size bada kiya gaya hai */
 .ganpati-large {
   width:clamp(210px, 55vw, 290px);
   max-height:310px;
@@ -168,7 +167,6 @@ h2 {
   background:radial-gradient(ellipse at 50% 35%,#fff2c8,#e5c17c 52%,#bc8a45);
   color:#711d2c;
 }
-/* Aur zyada Badi, Bold aur Khoobsurat Date Styling */
 .scratch-date {
   display:flex; flex-direction:column; align-items:center;
   justify-content:center; gap:3px; line-height:1;
@@ -195,7 +193,7 @@ h2 {
 /* TIGHT SPACING BETWEEN SECTIONS */
 .section-gap { height:2px; }
 
-/* COUNTDOWN SECTION - Timeline se proper distance ke liye padding adjust ki gayi hai */
+/* COUNTDOWN SECTION */
 .countdown-section { text-align:center; padding:1px 10px 14px; }
 .countdown-grid {
   display:flex; justify-content:center; gap:10px;
@@ -266,14 +264,14 @@ h2 {
 .dress-cols p { font-size:.85rem; line-height:1.2; margin:0; }
 .shades { font-size:.8rem; text-align:center; margin:6px 0 0; line-height:1.2; color:#85572f; }
 
-/* FINAL - Last frame ko aur zyada chota aur compact banaya gaya hai */
+/* FINAL */
 .final { text-align:center; padding:2px 10px 15px; }
 .final-frame { padding:10px 10px; }
 .final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.1rem,6.5vw,2.8rem); letter-spacing:0; margin:1px 0; }
 .final p { font-size:.88rem; line-height:1.2; max-width:390px; margin:0 auto; }
 .final-sign { font-family:"Great Vibes",cursive; font-size:1.8rem; color:var(--wine); margin-top:3px; }
 
-/* PETALS & CONFETTI */
+/* PETALS ONLY (Shiny gold dots removed) */
 #petals { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
 .petal {
   position:absolute; top:-15px; width:4px; height:6px;
@@ -285,18 +283,8 @@ h2 {
   10%,90% { opacity:.8; }
   100% { transform:translate3d(var(--sway),110vh,0) rotate(520deg); opacity:0; }
 }
-.sparkle {
-  position:fixed; pointer-events:none; z-index:25; border-radius:50%;
-  background:#ffe89d; box-shadow:0 0 8px 3px #f4c456;
-  animation:sparkFall linear infinite;
-}
-@keyframes sparkFall {
-  0% { transform:translate3d(0,-5vh,0) scale(.6); opacity:0; }
-  20%,80% { opacity:.8; }
-  100% { transform:translate3d(var(--drift),105vh,0) scale(1.2) rotate(360deg); opacity:0; }
-}
 
-/* SCRATCH REVEAL TOP-DOWN GOLDEN & RED CONFETTI RAIN */
+/* SCRATCH REVEAL TOP-DOWN CONFETTI RAIN */
 .scratch-confetti {
   position: absolute;
   width: 7px;
@@ -520,7 +508,7 @@ h2 {
     music.volume = 0.85;
 
     const playSong = () => {
-      if (musicStarted && !music.paused) return;
+      if (!music.paused) return;
       musicStarted = true;
 
       try {
@@ -552,7 +540,6 @@ h2 {
   musicBtn.addEventListener("click", event => {
     event.stopPropagation();
     if (music.paused) {
-      musicStarted = false;
       startMusic();
     } else {
       music.pause();
@@ -567,10 +554,12 @@ h2 {
     if (opened) return;
     opened = true;
 
+    // Direct Music Auto-play on Cover Tap
     startMusic();
     
-    // Video setup & autoplay on tap
-    movie.currentTime = 0.03;
+    // Direct Instant Video Play Setup
+    movie.currentTime = 0.01;
+    movie.load();
     movie.muted = false;
 
     const hideCover = () => {
@@ -581,17 +570,16 @@ h2 {
     if (playPromise !== undefined) {
       playPromise.then(() => {
         hideCover();
-      }).catch((err) => {
+      }).catch(() => {
+        // Fallback for strict browser autoplay rules
         movie.muted = true;
-        movie.play().then(hideCover).catch(() => {
-          hideCover();
-        });
+        movie.play().then(hideCover).catch(hideCover);
       });
     } else {
       hideCover();
     }
 
-    startPetalsAndSparkles();
+    startPetals();
   }
 
   cover.addEventListener("click", openInvite);
@@ -633,7 +621,7 @@ h2 {
 
   const petalHost = document.getElementById("petals");
 
-  function startPetalsAndSparkles() {
+  function startPetals() {
     if (petalHost.dataset.started) return;
     petalHost.dataset.started = "1";
 
@@ -645,20 +633,6 @@ h2 {
       petal.style.animationDuration = 10 + Math.random() * 10 + "s";
       petal.style.setProperty("--sway", (Math.random() * 140 - 70) + "px");
       petalHost.appendChild(petal);
-    }
-
-    for (let i = 0; i < 15; i++) {
-      const sparkle = document.createElement("span");
-      sparkle.className = "sparkle";
-      const size = 2 + Math.random() * 2.5;
-      sparkle.style.width = size + "px";
-      sparkle.style.height = size + "px";
-      sparkle.style.left = Math.random() * 100 + "%";
-      sparkle.style.top = -Math.random() * 50 + "px";
-      sparkle.style.setProperty("--drift", (Math.random() * 60 - 30) + "px");
-      sparkle.style.animationDuration = 7 + Math.random() * 8 + "s";
-      sparkle.style.animationDelay = -Math.random() * 10 + "s";
-      document.body.appendChild(sparkle);
     }
   }
 
