@@ -545,6 +545,34 @@ h2 {
     <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa">
   </div>
 
+  <!-- COUNTDOWN (PLACED RIGHT AFTER VIDEO) -->
+  <section class="countdown-section">
+    <div class="section-inner">
+      <div class="section-kicker">The Celebration Is Approaching</div>
+      <h2>COUNTING THE MOMENTS</h2>
+      <div class="ornament">❧ ✦ ❧</div>
+
+      <div class="countdown-grid">
+        <div class="time-card">
+          <span class="time-value" id="days">00</span>
+          <span class="time-label">Days</span>
+        </div>
+        <div class="time-card">
+          <span class="time-value" id="hours">00</span>
+          <span class="time-label">Hours</span>
+        </div>
+        <div class="time-card">
+          <span class="time-value" id="minutes">00</span>
+          <span class="time-label">Minutes</span>
+        </div>
+        <div class="time-card">
+          <span class="time-value" id="seconds">00</span>
+          <span class="time-label">Seconds</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- WELCOME -->
   <section id="welcome">
     <div class="section-inner royal-frame frame-corners welcome">
@@ -581,34 +609,6 @@ h2 {
           <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
         </div>
         <div class="scratch-hint" id="scratchHint">Scratch gently to reveal</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COUNTDOWN (NO FRAME) -->
-  <section class="countdown-section">
-    <div class="section-inner">
-      <div class="section-kicker">The Celebration Is Approaching</div>
-      <h2>COUNTING THE MOMENTS</h2>
-      <div class="ornament">❧ ✦ ❧</div>
-
-      <div class="countdown-grid">
-        <div class="time-card">
-          <span class="time-value" id="days">00</span>
-          <span class="time-label">Days</span>
-        </div>
-        <div class="time-card">
-          <span class="time-value" id="hours">00</span>
-          <span class="time-label">Hours</span>
-        </div>
-        <div class="time-card">
-          <span class="time-value" id="minutes">00</span>
-          <span class="time-label">Minutes</span>
-        </div>
-        <div class="time-card">
-          <span class="time-value" id="seconds">00</span>
-          <span class="time-label">Seconds</span>
-        </div>
       </div>
     </div>
   </section>
@@ -927,7 +927,6 @@ h2 {
     const point = getPoint(event);
 
     context.globalCompositeOperation = "destination-out";
-    // Increased brush size for easier scratching
     context.lineWidth = Math.max(26, canvas.width * .1);
     context.lineCap = "round";
     context.lineJoin = "round";
@@ -994,4 +993,3 @@ h2 {
 </script>
 </body>
 </html>
-
