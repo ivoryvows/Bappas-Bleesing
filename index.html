@@ -8,7 +8,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 :root {
@@ -161,16 +161,23 @@ h2 {
   position:absolute; inset:0; display:flex; align-items:center;
   justify-content:center; text-align:center;
   background:radial-gradient(ellipse at 50% 35%,#fff2c8,#e5c17c 52%,#bc8a45);
-  color:#651a27;
+  color:#711d2c;
 }
+/* Badi aur khoobsurat Date Styling */
 .scratch-date {
-  display:flex; flex-direction:row; align-items:baseline;
-  justify-content:center; gap:7px; white-space:nowrap;
-  padding:0 5px; font-family:"Cormorant Garamond",serif;
+  display:flex; flex-direction:column; align-items:center;
+  justify-content:center; gap:2px; line-height:1;
+  font-family:"Cormorant Garamond",serif;
+  animation: datePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
-.scratch-date .day { font-size:clamp(2rem,7vw,3rem); line-height:1; font-weight:600; }
-.scratch-date .month { font-size:clamp(.85rem,3vw,1.15rem); letter-spacing:.07em; text-transform:uppercase; }
-.scratch-date .year { font-size:clamp(.85rem,3vw,1.15rem); }
+@keyframes datePop {
+  0% { transform: scale(0.7); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+.scratch-date .day { font-size:2.4rem; font-weight:700; color:#711d2c; letter-spacing:0.02em; }
+.scratch-date .month { font-size:1.15rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:#8b5d31; }
+.scratch-date .year { font-size:1rem; font-weight:600; letter-spacing:0.12em; color:#711d2c; }
+
 #scratchCanvas {
   position:absolute; inset:0; width:100%; height:100%;
   z-index:4; touch-action:none; cursor:crosshair;
@@ -183,7 +190,7 @@ h2 {
 /* TIGHT SPACING BETWEEN SECTIONS */
 .section-gap { height:2px; }
 
-/* COUNTDOWN SECTION & NEW STYLISH BOXES */
+/* COUNTDOWN SECTION */
 .countdown-section { text-align:center; padding:1px 10px 6px; }
 .countdown-grid {
   display:flex; justify-content:center; gap:10px;
@@ -216,52 +223,52 @@ h2 {
   text-transform:uppercase; margin-top:6px; color:#f6dfad;
 }
 
-/* TIMELINE IN FRAME */
-.timeline-section { padding:2px 10px 10px; text-align:center; }
-.timeline-frame { padding:14px 10px 10px; }
+/* TIMELINE SECTION - Thoda Upar Shift Kiya gaya hai */
+.timeline-section { padding:0 10px 10px; text-align:center; margin-top: -6px; }
+.timeline-frame { padding:10px 10px 8px; }
 .timeline {
   display:flex; justify-content:space-around; align-items:flex-start;
-  gap:8px; margin-top:8px; flex-wrap:wrap;
+  gap:8px; margin-top:6px; flex-wrap:wrap;
 }
-.event { flex:1; min-width:85px; max-width:170px; text-align:center; padding:4px 2px; }
+.event { flex:1; min-width:85px; max-width:170px; text-align:center; padding:2px 2px; }
 .event-time { font-size:.8rem; letter-spacing:.04em; color:#8b5d31; font-weight:600; }
 .event h3 { font-size:1.1rem; font-weight:500; color:var(--wine); margin:2px 0; }
 .event p { font-size:.84rem; line-height:1.2; margin:0 auto; }
 
-/* VENUE AND DRESS */
+/* VENUE AND DRESS - Venue frame ki height choti ki gayi hai */
 .details-grid {
   display:grid; grid-template-columns:1fr; gap:10px;
   width:min(92%,480px); margin:auto;
 }
-.detail-card { padding:14px 12px; min-width:0; }
+.detail-card { padding:10px 12px; min-width:0; }
 .venue-content { display:flex; flex-direction:column; align-items:center; text-align:center; }
 .venue-image {
-  width:min(100%,220px); height:100px; object-fit:cover;
+  width:min(100%,190px); height:75px; object-fit:cover;
   border:1px solid #c39a54; box-shadow:0 2px 8px #9c6a3730;
-  margin:4px 0 6px;
+  margin:2px 0 4px;
 }
-.venue-name { font-size:1.2rem; color:var(--wine); margin:2px 0 3px; }
-.venue-address { font-size:.87rem; line-height:1.25; margin:0 0 7px; }
+.venue-name { font-size:1.1rem; color:var(--wine); margin:1px 0 2px; }
+.venue-address { font-size:.82rem; line-height:1.2; margin:0 0 5px; }
 .map-link {
   display:inline-block; text-decoration:none; color:#fff0ce;
   background:linear-gradient(#8c2031,#5c101e); border:1px solid #d6ad62;
-  border-radius:20px; padding:7px 12px;
-  font-family:"DM Sans",sans-serif; font-size:.62rem; letter-spacing:.05em;
+  border-radius:20px; padding:5px 10px;
+  font-family:"DM Sans",sans-serif; font-size:.58rem; letter-spacing:.05em;
 }
-.dress-intro { text-align:center; margin:0 0 6px; font-size:.9rem; line-height:1.25; }
-.dress-cols { display:flex; flex-direction:column; gap:8px; margin-top:6px; text-align:center; }
-.dress-cols h3 { font-size:1.05rem; color:var(--wine); margin:0 0 2px; }
-.dress-cols p { font-size:.9rem; line-height:1.2; margin:0; }
-.shades { font-size:.82rem; text-align:center; margin:8px 0 0; line-height:1.3; color:#85572f; }
+.dress-intro { text-align:center; margin:0 0 4px; font-size:.86rem; line-height:1.2; }
+.dress-cols { display:flex; flex-direction:column; gap:6px; margin-top:4px; text-align:center; }
+.dress-cols h3 { font-size:1rem; color:var(--wine); margin:0 0 1px; }
+.dress-cols p { font-size:.85rem; line-height:1.2; margin:0; }
+.shades { font-size:.8rem; text-align:center; margin:6px 0 0; line-height:1.2; color:#85572f; }
 
 /* FINAL */
 .final { text-align:center; padding:2px 10px 15px; }
-.final-frame { padding:18px 12px; }
-.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.5rem,8vw,3.4rem); letter-spacing:0; margin:2px 0; }
-.final p { font-size:1rem; line-height:1.3; max-width:420px; margin:0 auto; }
-.final-sign { font-family:"Great Vibes",cursive; font-size:2.1rem; color:var(--wine); margin-top:6px; }
+.final-frame { padding:14px 12px; }
+.final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.3rem,7vw,3.2rem); letter-spacing:0; margin:2px 0; }
+.final p { font-size:.95rem; line-height:1.25; max-width:420px; margin:0 auto; }
+.final-sign { font-family:"Great Vibes",cursive; font-size:2rem; color:var(--wine); margin-top:4px; }
 
-/* PETALS */
+/* PETALS & CONFETTI */
 #petals { position:fixed; inset:0; z-index:20; pointer-events:none; overflow:hidden; }
 .petal {
   position:absolute; top:-15px; width:4px; height:6px;
@@ -284,9 +291,26 @@ h2 {
   100% { transform:translate3d(var(--drift),105vh,0) scale(1.2) rotate(360deg); opacity:0; }
 }
 
+/* SCRATCH REVEAL GOLDEN CONFETTI PARTICLES */
+.scratch-confetti {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, #fff2c8 0%, #bd9147 100%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 5;
+  box-shadow: 0 0 6px #ffd700;
+  animation: confettiBurst 1s ease-out forwards;
+}
+@keyframes confettiBurst {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(0.3); opacity: 0; }
+}
+
 @media(min-width:621px) {
   .details-grid { grid-template-columns:1fr 1fr; width:min(94%,640px); gap:12px; }
-  .venue-image { width:100%; height:105px; }
+  .venue-image { width:100%; height:80px; }
 }
 @media(max-width:620px) {
   .scratch-layout { grid-template-columns:1fr; padding:10px 8px; gap:8px; }
@@ -750,7 +774,33 @@ h2 {
     for (let i = 3; i < pixels.length; i += 4) {
       if (pixels[i] < 30) cleared++;
     }
+    // Changed threshold to 50% as requested
     if (cleared / (pixels.length / 4) >= .5) revealDate();
+  }
+
+  function triggerGoldenConfetti() {
+    const rect = wrap.getBoundingClientRect();
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    for (let i = 0; i < 25; i++) {
+      const particle = document.createElement("span");
+      particle.className = "scratch-confetti";
+      particle.style.left = centerX + "px";
+      particle.style.top = centerY + "px";
+
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 40 + Math.random() * 70;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+
+      particle.style.setProperty("--dx", dx + "px");
+      particle.style.setProperty("--dy", dy + "px");
+      particle.style.animationDuration = (0.6 + Math.random() * 0.5) + "s";
+
+      wrap.appendChild(particle);
+      setTimeout(() => particle.remove(), 1100);
+    }
   }
 
   function revealDate() {
@@ -759,6 +809,7 @@ h2 {
     context.clearRect(0, 0, canvas.width, canvas.height);
     canvas.style.pointerEvents = "none";
     hint.textContent = "✦  3 JANUARY 2027  ✦";
+    triggerGoldenConfetti();
   }
 
   canvas.addEventListener("pointerdown", event => {
