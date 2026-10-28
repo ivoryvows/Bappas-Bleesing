@@ -117,13 +117,13 @@ h2 {
 }
 .ornament { text-align:center; color:#a77a38; margin:1px auto 4px; font-size:.8rem; }
 
-/* ZERO GAP GANPATI FOR FIRST PAGE */
+/* GANPATI BAPPA STYLING */
 .ganpati-center-wrap {
   display:flex; justify-content:center; align-items:center;
   text-align:center; padding:0;
 }
 #topGanpati {
-  margin-top: -25px; /* Video ke bilkul sath aur upar attach karne ke liye */
+  margin-top: -25px;
 }
 .ganpati-center {
   display:block; width:clamp(170px, 45vw, 240px);
@@ -180,28 +180,40 @@ h2 {
   margin-top:4px; text-align:center; color:#865e32;
 }
 
-/* ZERO GAP BETWEEN SECTIONS */
+/* TIGHT SPACING BETWEEN SECTIONS */
 .section-gap { height:2px; }
 
-/* COUNTDOWN */
-.countdown-section { text-align:center; padding:2px 10px 10px; }
+/* COUNTDOWN SECTION & NEW STYLISH BOXES */
+.countdown-section { text-align:center; padding:1px 10px 6px; }
 .countdown-grid {
-  display:flex; justify-content:center; gap:8px;
-  flex-wrap:wrap; margin-top:8px;
+  display:flex; justify-content:center; gap:10px;
+  flex-wrap:wrap; margin-top:6px;
 }
 .time-card {
-  width:clamp(60px,16vw,76px); min-height:65px; padding:8px 3px 5px;
-  background:linear-gradient(145deg,#fff7e3,#f3dfb5 50%,#fff5dc);
-  border:1px solid #b78a45; border-radius:12px;
-  box-shadow:0 2px 6px #70451c14; text-align:center;
+  width:clamp(65px, 17vw, 82px);
+  padding:10px 4px 8px;
+  background:linear-gradient(145deg, #711d2c, #4b121c);
+  border:1px solid #e3bd69; 
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(113, 29, 44, 0.25);
+  text-align:center;
+  position: relative;
+}
+.time-card::after {
+  content: "";
+  position: absolute; inset: 3px;
+  border: 1px dashed rgba(227, 189, 105, 0.4);
+  border-radius: 7px;
+  pointer-events: none;
 }
 .time-value {
-  display:block; font-size:1.4rem; line-height:1;
-  color:#711d2c; font-variant-numeric:tabular-nums;
+  display:block; font-size:1.5rem; line-height:1; font-weight: 600;
+  color: #fff0cb; font-variant-numeric:tabular-nums;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 .time-label {
-  display:block; font-size:.52rem; letter-spacing:.08em;
-  text-transform:uppercase; margin-top:4px; color:#6d4a31;
+  display:block; font-size:.54rem; letter-spacing:.1em;
+  text-transform:uppercase; margin-top:6px; color:#f6dfad;
 }
 
 /* TIMELINE IN FRAME */
@@ -364,7 +376,7 @@ h2 {
 
   <!-- PAGE 2: Countdown & Timeline -->
   <div class="page-section page-2">
-    <div class="ganpati-center-wrap">
+    <div class="ganpati-center-wrap" style="padding-top: 0px; margin-top: -10px;">
       <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
 
@@ -412,7 +424,7 @@ h2 {
 
   <!-- PAGE 3: Venue, Dress Code & Final -->
   <div class="page-section page-3">
-    <div class="ganpati-center-wrap">
+    <div class="ganpati-center-wrap" style="padding-top: 0px; margin-top: -10px;">
       <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
 
@@ -443,7 +455,7 @@ h2 {
     </div>
 
     <div class="section-gap"></div>
-    <div class="ganpati-center-wrap">
+    <div class="ganpati-center-wrap" style="padding-top: 0px; margin-top: -10px;">
       <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
 
