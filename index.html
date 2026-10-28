@@ -169,27 +169,28 @@ h2 {
   color:var(--wine); margin-top:3px;
 }
 
-/* SCRATCH (COMPACT HEART SHAPE) */
+/* SCRATCH (NORMAL SQUARE LAYOUT) */
 .scratch-layout {
-  display:flex; flex-direction:column;
-  align-items:center; text-align:center; padding:8px 10px; gap:4px;
+  display:grid; grid-template-columns:1fr 1fr;
+  align-items:center; gap:8px; padding:10px 10px;
 }
-.scratch-info p { font-size:.88rem; line-height:1.2; margin:2px auto; }
+.scratch-info { text-align:center; }
+.scratch-info p { font-size:.93rem; line-height:1.2; margin:3px auto; }
 .scratch-wrap {
-  position:relative; width:min(100%,170px); aspect-ratio:1;
-  margin:2px auto; overflow:hidden; background: transparent;
-  display: flex; align-items: center; justify-content: center;
+  position:relative; width:min(100%,220px); aspect-ratio:1.45;
+  margin:auto; overflow:hidden; border:2px double #a77b3b;
+  background:linear-gradient(135deg,#a36d31,#f6d995 24%,#bd873e 46%,#f9e5b0 65%,#99602d);
+  box-shadow:0 3px 10px #5b311226;
 }
 #scratchReveal {
   position:absolute; inset:0; display:flex; align-items:center;
   justify-content:center; text-align:center;
-  background: radial-gradient(circle, #fff2c8 0%, #fae1a6 60%, #e5c17c 100%);
+  background:radial-gradient(ellipse at 50% 35%,#fff2c8,#e5c17c 52%,#bc8a45);
   color:#711d2c;
-  clip-path: path('M85,150 C85,150 145,100 145,63 C145,37 124,20 100,20 C85,20 73,29 85,44 C73,29 61,20 46,20 C22,20 1,37 1,63 C1,100 85,150 85,150 Z');
 }
 .scratch-date {
   display:flex; flex-direction:column; align-items:center;
-  justify-content:center; gap:1px; line-height:1;
+  justify-content:center; gap:3px; line-height:1;
   font-family:"Cormorant Garamond",serif;
   animation: datePop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
@@ -197,17 +198,17 @@ h2 {
   0% { transform: scale(0.6); opacity: 0; }
   100% { transform: scale(1); opacity: 1; }
 }
-.scratch-date .day { font-size:2.1rem; font-weight:700; color:#711d2c; letter-spacing:0.03em; }
-.scratch-date .month { font-size:0.95rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#8b5d31; }
-.scratch-date .year { font-size:0.85rem; font-weight:700; letter-spacing:0.1em; color:#711d2c; }
+.scratch-date .day { font-size:2.8rem; font-weight:700; color:#711d2c; letter-spacing:0.03em; }
+.scratch-date .month { font-size:1.3rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:#8b5d31; }
+.scratch-date .year { font-size:1.15rem; font-weight:700; letter-spacing:0.15em; color:#711d2c; }
 
 #scratchCanvas {
   position:absolute; inset:0; width:100%; height:100%;
   z-index:4; touch-action:none; cursor:crosshair;
 }
 .scratch-hint {
-  font-size:.62rem; letter-spacing:.08em; text-transform:uppercase;
-  margin-top:2px; text-align:center; color:#865e32;
+  font-size:.68rem; letter-spacing:.08em; text-transform:uppercase;
+  margin-top:4px; text-align:center; color:#865e32;
 }
 
 /* TIGHT SPACING BETWEEN SECTIONS */
@@ -324,8 +325,8 @@ h2 {
   .venue-image { width:100%; height:80px; }
 }
 @media(max-width:620px) {
-  .scratch-layout { padding:8px 6px; }
-  .scratch-wrap { width:min(100%,150px); }
+  .scratch-layout { grid-template-columns:1fr; padding:10px 8px; gap:8px; }
+  .scratch-wrap { width:min(100%,220px); }
   .section-gap { height:2px; }
 }
 @media(prefers-reduced-motion:reduce) {
@@ -389,8 +390,10 @@ h2 {
     <section id="scratch-section">
       <div class="section-inner royal-frame frame-corners scratch-layout">
         <div class="scratch-info">
+          <div class="section-kicker">A Little Golden Surprise</div>
           <h2>SCRATCH TO REVEAL</h2>
-          <div class="ornament" style="margin: 0 auto 2px;">✦ ❧ ✦</div>
+          <div class="ornament">✦ ❧ ✦</div>
+          <p>Gently scratch the golden surface to reveal our special date.</p>
         </div>
         <div>
           <div class="scratch-wrap" id="scratchWrap">
@@ -403,7 +406,7 @@ h2 {
             </div>
             <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
           </div>
-          <div class="scratch-hint" id="scratchHint">Scratch here</div>
+          <div class="scratch-hint" id="scratchHint">Scratch gently to reveal</div>
         </div>
       </div>
     </section>
@@ -678,56 +681,36 @@ h2 {
   let lastPoint = null;
   let lastCheck = 0;
 
-  function getHeartPath(width, height) {
-    const path = new Path2D();
-    const w = width, h = height;
-    path.moveTo(w * 0.5, h * 0.82);
-    path.bezierCurveTo(w * 0.5, h * 0.82, w * 0.92, h * 0.52, w * 0.92, h * 0.28);
-    path.bezierCurveTo(w * 0.92, h * 0.1, w * 0.74, 0.02, w * 0.55, h * 0.18);
-    path.bezierCurveTo(w * 0.5, h * 0.24, w * 0.5, h * 0.24, w * 0.45, h * 0.18);
-    path.bezierCurveTo(w * 0.26, 0.02, w * 0.08, h * 0.1, w * 0.08, h * 0.28);
-    path.bezierCurveTo(w * 0.08, h * 0.52, w * 0.5, h * 0.82, w * 0.5, h * 0.82);
-    path.closePath();
-    return path;
-  }
-
-  function drawMaroonHeartCover() {
+  function drawGoldCover() {
     const width = canvas.width, height = canvas.height;
     if (!width || !height) return;
 
-    context.clearRect(0, 0, width, height);
-
-    context.save();
-    const heartPath = getHeartPath(width, height);
-    context.clip(heartPath);
-
     const gradient = context.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "#711d2c");
-    gradient.addColorStop(0.35, "#a8203a");
-    gradient.addColorStop(0.65, "#8b2032");
-    gradient.addColorStop(1, "#4b121c");
+    gradient.addColorStop(0, "#8f5c27");
+    gradient.addColorStop(.18, "#f6d995");
+    gradient.addColorStop(.4, "#b47b34");
+    gradient.addColorStop(.62, "#fbe8b4");
+    gradient.addColorStop(1, "#9b642c");
 
+    context.globalCompositeOperation = "source-over";
     context.fillStyle = gradient;
     context.fillRect(0, 0, width, height);
 
-    for (let i = 0; i < Math.floor(width * height / 400); i++) {
-      context.fillStyle = Math.random() > 0.4 ? "rgba(255, 215, 0, 0.55)" : "rgba(255, 244, 202, 0.3)";
+    for (let i = 0; i < Math.floor(width * height / 900); i++) {
+      context.fillStyle = Math.random() > .5 ? "rgba(255,244,202,.65)" : "rgba(117,69,27,.22)";
       context.beginPath();
-      context.arc(Math.random() * width, Math.random() * height, Math.random() * 1.6 + 0.4, 0, Math.PI * 2);
+      context.arc(Math.random() * width, Math.random() * height, Math.random() * 1.5 + .3, 0, Math.PI * 2);
       context.fill();
     }
 
-    context.strokeStyle = "#e3bd69";
-    context.lineWidth = 3.5;
-    context.stroke(heartPath);
-
+    context.strokeStyle = "rgba(255,242,200,.85)";
+    context.lineWidth = 2;
+    context.strokeRect(5, 5, width - 10, height - 10);
     context.fillStyle = "#fff0c5";
     context.textAlign = "center";
     context.textBaseline = "middle";
-    context.font = `600 ${Math.max(12, Math.round(width * 0.09))}px "Cormorant Garamond",serif`;
+    context.font = `600 ${Math.max(14, Math.round(width * .065))}px "Cormorant Garamond",serif`;
     context.fillText("SCRATCH HERE", width / 2, height / 2);
-
-    context.restore();
   }
 
   function resizeCanvas() {
@@ -741,7 +724,7 @@ h2 {
     canvas.style.width = rectangle.width + "px";
     canvas.style.height = rectangle.height + "px";
     context.setTransform(1, 0, 0, 1, 0, 0);
-    drawMaroonHeartCover();
+    drawGoldCover();
   }
 
   function getPoint(event) {
@@ -756,7 +739,7 @@ h2 {
     if (!drawing || revealed) return;
     const point = getPoint(event);
     context.globalCompositeOperation = "destination-out";
-    context.lineWidth = Math.max(28, canvas.width * 0.12);
+    context.lineWidth = Math.max(30, canvas.width * .11);
     context.lineCap = "round";
     context.lineJoin = "round";
     context.beginPath();
@@ -780,18 +763,11 @@ h2 {
   function checkProgress() {
     if (revealed || !canvas.width || !canvas.height) return;
     const pixels = context.getImageData(0, 0, canvas.width, canvas.height).data;
-    let cleared = 0, total = 0;
-    
-    for (let y = 0; y < canvas.height; y += 4) {
-      for (let x = 0; x < canvas.width; x += 4) {
-        const index = (y * canvas.width + x) * 4 + 3;
-        if (pixels[index] !== undefined) {
-          total++;
-          if (pixels[index] < 30) cleared++;
-        }
-      }
+    let cleared = 0;
+    for (let i = 3; i < pixels.length; i += 4) {
+      if (pixels[i] < 30) cleared++;
     }
-    if (total > 0 && (cleared / total) >= 0.45) revealDate();
+    if (cleared / (pixels.length / 4) >= .5) revealDate();
   }
 
   function triggerGoldenRedRain() {
