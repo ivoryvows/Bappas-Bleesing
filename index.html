@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -79,16 +78,35 @@ body.locked { overflow:hidden; }
   border-radius:20px; padding:7px 12px; pointer-events:none;
 }
 
-/* WEBSITE */
+/* WEBSITE PAGES BACKGROUNDS */
+.page-section {
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  padding: 30px 10px;
+}
+
+/* Page 1 Background */
+.page-1 {
+  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/d8cm02.jpeg");
+}
+
+/* Page 2 Background */
+.page-2 {
+  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/lkqv47.jpeg");
+}
+
+/* Page 3 Background */
+.page-3 {
+  background-image: linear-gradient(rgba(248, 234, 208, 0.92), rgba(248, 234, 208, 0.92)), url("https://files.catbox.moe/d8cm02.jpeg");
+}
+
 #site {
   position:relative; isolation:isolate; min-height:100vh;
-  background:#f8ead0 url("https://files.catbox.moe/8tvv01.png") center top/100% auto repeat;
+  background:var(--cream);
 }
-#site::before {
-  content:""; position:absolute; inset:0; z-index:-1;
-  pointer-events:none; background:#f8ead059;
-}
-section { position:relative; padding:8px 10px; }
+section { position:relative; padding:12px 10px; }
 .section-inner { width:min(92%,600px); margin:auto; position:relative; }
 
 .royal-frame {
@@ -115,15 +133,15 @@ h2 {
 }
 .ornament { text-align:center; color:#a77a38; margin:4px auto 9px; font-size:.8rem; }
 
-/* BIG GANPATI */
+/* LARGER GANPATI */
 .ganpati-center-wrap {
   display:flex; justify-content:center; align-items:center;
-  text-align:center; padding:8px 0;
+  text-align:center; padding:12px 0;
 }
 .ganpati-center {
-  display:block; width:clamp(145px,39vw,205px);
-  height:auto; max-height:220px; object-fit:contain;
-  filter:drop-shadow(0 5px 10px #73461835);
+  display:block; width:clamp(170px, 45vw, 240px);
+  height:auto; max-height:260px; object-fit:contain;
+  filter:drop-shadow(0 6px 12px #73461840);
   animation:ganpatiFloat 3.8s ease-in-out infinite;
 }
 @keyframes ganpatiFloat {
@@ -176,7 +194,7 @@ h2 {
 }
 
 /* SPACING */
-.section-gap { height:24px; }
+.section-gap { height:16px; }
 
 /* COUNTDOWN */
 .countdown-section { text-align:center; padding:4px 10px 15px; }
@@ -238,7 +256,7 @@ h2 {
 .shades { font-size:.82rem; text-align:center; margin:11px 0 0; line-height:1.35; color:#85572f; }
 
 /* FINAL */
-.final { text-align:center; padding:5px 12px 30px; }
+.final { text-align:center; padding:5px 12px 20px; }
 .final-frame { padding:22px 15px; }
 .final h2 { font-family:"Great Vibes",cursive; font-size:clamp(2.5rem,8vw,3.4rem); letter-spacing:0; margin:3px 0; }
 .final p { font-size:1rem; line-height:1.35; max-width:420px; margin:0 auto; }
@@ -274,7 +292,7 @@ h2 {
 @media(max-width:620px) {
   .scratch-layout { grid-template-columns:1fr; padding:15px 12px; gap:10px; }
   .scratch-wrap { width:min(100%,260px); }
-  .section-gap { height:22px; }
+  .section-gap { height:16px; }
 }
 @media(prefers-reduced-motion:reduce) {
   .ganpati-center,.music-toggle.playing { animation:none; }
@@ -287,9 +305,9 @@ h2 {
 
 <button class="music-toggle" id="musicToggle" aria-label="Toggle background music">🎵</button>
 
-<!-- Put Kur.mp4 in the same GitHub folder as index.html -->
+<!-- Background Music (Kur.mp3) -->
 <audio id="bgMusic" preload="auto" loop playsinline>
-  <source src="./Kur.mp4">
+  <source src="./Kur.mp3" type="audio/mpeg">
 </audio>
 
 <div id="cover" role="button" tabindex="0" aria-label="Tap to open invitation">
@@ -311,147 +329,147 @@ h2 {
 <div id="site">
   <div id="petals" aria-hidden="true"></div>
 
-  <!-- 1. GANPATI DIRECTLY BELOW MOV -->
-  <div class="ganpati-center-wrap">
-    <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa">
-  </div>
-
-  <!-- 2. WELCOME -->
-  <section id="welcome">
-    <div class="section-inner royal-frame frame-corners welcome">
-      <div class="welcome-copy">
-        <div class="section-kicker">A Warm Welcome</div>
-        <h2>SHUBH VIVAH</h2>
-        <div class="ornament">❧ ✦ ❧</div>
-        <p>Two hearts, two families, one beautiful journey.</p>
-        <p>We would be delighted to celebrate this special beginning with you.</p>
-        <div class="signature">Priya &amp; Rohan</div>
-      </div>
+  <!-- PAGE 1: Welcome & Scratch -->
+  <div class="page-section page-1">
+    <div class="ganpati-center-wrap">
+      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa">
     </div>
-  </section>
 
-  <!-- 3. SCRATCH -->
-  <section id="scratch-section">
-    <div class="section-inner royal-frame frame-corners scratch-layout">
-      <div class="scratch-info">
-        <div class="section-kicker">A Little Golden Surprise</div>
-        <h2>SCRATCH TO REVEAL</h2>
-        <div class="ornament">✦ ❧ ✦</div>
-        <p>Gently scratch the golden surface to reveal our special date.</p>
-      </div>
-      <div>
-        <div class="scratch-wrap" id="scratchWrap">
-          <div id="scratchReveal">
-            <div class="scratch-date">
-              <span class="day">03</span>
-              <span class="month">January</span>
-              <span class="year">2027</span>
-            </div>
-          </div>
-          <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
+    <section id="welcome">
+      <div class="section-inner royal-frame frame-corners welcome">
+        <div class="welcome-copy">
+          <div class="section-kicker">A Warm Welcome</div>
+          <h2>SHUBH VIVAH</h2>
+          <div class="ornament">❧ ✦ ❧</div>
+          <p>Two hearts, two families, one beautiful journey.</p>
+          <p>We would be delighted to celebrate this special beginning with you.</p>
+          <div class="signature">Priya &amp; Rohan</div>
         </div>
-        <div class="scratch-hint" id="scratchHint">Scratch gently to reveal</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. GAP THEN GANPATI -->
-  <div class="section-gap"></div>
-  <div class="ganpati-center-wrap">
-    <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
-  </div>
-
-  <!-- 5. COUNTDOWN DIRECTLY BELOW GANPATI -->
-  <section class="countdown-section" id="countdown">
-    <div class="section-inner">
-      <div class="section-kicker">The Celebration Is Approaching</div>
-      <h2>COUNTING THE MOMENTS</h2>
-      <div class="ornament">❧ ✦ ❧</div>
-      <div class="countdown-grid">
-        <div class="time-card"><span class="time-value" id="days">00</span><span class="time-label">Days</span></div>
-        <div class="time-card"><span class="time-value" id="hours">00</span><span class="time-label">Hours</span></div>
-        <div class="time-card"><span class="time-value" id="minutes">00</span><span class="time-label">Minutes</span></div>
-        <div class="time-card"><span class="time-value" id="seconds">00</span><span class="time-label">Seconds</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. TIMELINE INSIDE ROYAL FRAME -->
-  <section class="timeline-section" id="celebration">
-    <div class="section-inner royal-frame frame-corners timeline-frame">
-      <div class="section-kicker">Together With Our Families</div>
-      <h2>THE CELEBRATION</h2>
-      <div class="ornament">✦ ─── ❧ ─── ✦</div>
-      <div class="timeline">
-        <article class="event">
-          <div class="event-time">4:00 PM</div>
-          <h3>Baraat</h3>
-          <p>A joyful arrival filled with music and celebration.</p>
-        </article>
-        <article class="event">
-          <div class="event-time">6:00 PM</div>
-          <h3>Varmala</h3>
-          <p>A beautiful exchange of garlands and blessings.</p>
-        </article>
-        <article class="event">
-          <div class="event-time">8:00 PM</div>
-          <h3>Wedding Dinner</h3>
-          <p>An evening of delicious food and memories.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. GAP THEN GANPATI -->
-  <div class="section-gap"></div>
-  <div class="ganpati-center-wrap">
-    <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
-  </div>
-
-  <!-- 8. VENUE -->
-  <div class="details-grid">
-    <section class="royal-frame frame-corners detail-card" id="venue">
-      <div class="section-kicker">Join Us in Rajasthan</div>
-      <h2>THE VENUE</h2>
-      <div class="ornament">❧ ✦ ❧</div>
-      <div class="venue-content">
-        <img class="venue-image" src="https://files.catbox.moe/lkqv47.jpeg" alt="Royal Rajasthani Venue View" loading="lazy">
-        <div class="venue-name">The Raj Palace</div>
-        <p class="venue-address">Jorawar Singh Gate, Amer Road, Jaipur, Rajasthan</p>
-        <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Raj+Palace+Jaipur+Rajasthan" target="_blank" rel="noopener">⌖ OPEN MAPS</a>
       </div>
     </section>
 
-    <!-- 9. DRESS CODE DIRECTLY AFTER VENUE -->
-    <section class="royal-frame frame-corners detail-card" id="dresscode">
-      <div class="section-kicker">Dress to Celebrate</div>
-      <h2>FESTIVE ATTIRE</h2>
-      <div class="ornament">❧ ✦ ❧</div>
-      <p class="dress-intro">Traditional Indian Wedding Wear</p>
-      <div class="dress-cols">
-        <div><h3>For Her</h3><p>Sarees, lehengas &amp; festive suits.</p></div>
-        <div><h3>For Him</h3><p>Sherwanis &amp; bandhgala suits.</p></div>
+    <div class="section-gap"></div>
+
+    <section id="scratch-section">
+      <div class="section-inner royal-frame frame-corners scratch-layout">
+        <div class="scratch-info">
+          <div class="section-kicker">A Little Golden Surprise</div>
+          <h2>SCRATCH TO REVEAL</h2>
+          <div class="ornament">✦ ❧ ✦</div>
+          <p>Gently scratch the golden surface to reveal our special date.</p>
+        </div>
+        <div>
+          <div class="scratch-wrap" id="scratchWrap">
+            <div id="scratchReveal">
+              <div class="scratch-date">
+                <span class="day">03</span>
+                <span class="month">January</span>
+                <span class="year">2027</span>
+              </div>
+            </div>
+            <canvas id="scratchCanvas" aria-label="Scratch to reveal the wedding date"></canvas>
+          </div>
+          <div class="scratch-hint" id="scratchHint">Scratch gently to reveal</div>
+        </div>
       </div>
-      <p class="shades">✦ &nbsp; Maroon, gold, emerald &amp; royal shades.</p>
     </section>
   </div>
 
-  <!-- 10. GAP THEN GANPATI -->
-  <div class="section-gap"></div>
-  <div class="ganpati-center-wrap">
-    <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
+  <!-- PAGE 2: Countdown & Timeline -->
+  <div class="page-section page-2">
+    <div class="ganpati-center-wrap">
+      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
+    </div>
+
+    <section class="countdown-section" id="countdown">
+      <div class="section-inner">
+        <div class="section-kicker">The Celebration Is Approaching</div>
+        <h2>COUNTING THE MOMENTS</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+        <div class="countdown-grid">
+          <div class="time-card"><span class="time-value" id="days">00</span><span class="time-label">Days</span></div>
+          <div class="time-card"><span class="time-value" id="hours">00</span><span class="time-label">Hours</span></div>
+          <div class="time-card"><span class="time-value" id="minutes">00</span><span class="time-label">Minutes</span></div>
+          <div class="time-card"><span class="time-value" id="seconds">00</span><span class="time-label">Seconds</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-gap"></div>
+
+    <section class="timeline-section" id="celebration">
+      <div class="section-inner royal-frame frame-corners timeline-frame">
+        <div class="section-kicker">Together With Our Families</div>
+        <h2>THE CELEBRATION</h2>
+        <div class="ornament">✦ ─── ❧ ─── ✦</div>
+        <div class="timeline">
+          <article class="event">
+            <div class="event-time">4:00 PM</div>
+            <h3>Baraat</h3>
+            <p>A joyful arrival filled with music and celebration.</p>
+          </article>
+          <article class="event">
+            <div class="event-time">6:00 PM</div>
+            <h3>Varmala</h3>
+            <p>A beautiful exchange of garlands and blessings.</p>
+          </article>
+          <article class="event">
+            <div class="event-time">8:00 PM</div>
+            <h3>Wedding Dinner</h3>
+            <p>An evening of delicious food and memories.</p>
+          </article>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- 11. FINAL FRAME -->
-  <section class="final" id="final">
-    <div class="section-inner royal-frame frame-corners final-frame">
-      <div class="section-kicker">A Day Made More Beautiful by You</div>
-      <h2>We Can’t Wait</h2>
-      <div class="ornament">❧ ✦ ❧</div>
-      <p>We can’t wait to celebrate this beautiful beginning with you. Your love, laughter and blessings will make our day unforgettable.</p>
-      <div class="final-sign">Priya &amp; Rohan</div>
+  <!-- PAGE 3: Venue, Dress Code & Final -->
+  <div class="page-section page-3">
+    <div class="ganpati-center-wrap">
+      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
     </div>
-  </section>
+
+    <div class="details-grid">
+      <section class="royal-frame frame-corners detail-card" id="venue">
+        <div class="section-kicker">Join Us in Rajasthan</div>
+        <h2>THE VENUE</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+        <div class="venue-content">
+          <img class="venue-image" src="https://files.catbox.moe/lkqv47.jpeg" alt="Royal Rajasthani Venue View" loading="lazy">
+          <div class="venue-name">The Raj Palace</div>
+          <p class="venue-address">Jorawar Singh Gate, Amer Road, Jaipur, Rajasthan</p>
+          <a class="map-link" href="https://www.google.com/maps/search/?api=1&amp;query=The+Raj+Palace+Jaipur+Rajasthan" target="_blank" rel="noopener">⌖ OPEN MAPS</a>
+        </div>
+      </section>
+
+      <section class="royal-frame frame-corners detail-card" id="dresscode">
+        <div class="section-kicker">Dress to Celebrate</div>
+        <h2>FESTIVE ATTIRE</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+        <p class="dress-intro">Traditional Indian Wedding Wear</p>
+        <div class="dress-cols">
+          <div><h3>For Her</h3><p>Sarees, lehengas &amp; festive suits.</p></div>
+          <div><h3>For Him</h3><p>Sherwanis &amp; bandhgala suits.</p></div>
+        </div>
+        <p class="shades">✦ &nbsp; Maroon, gold, emerald &amp; royal shades.</p>
+      </section>
+    </div>
+
+    <div class="section-gap"></div>
+    <div class="ganpati-center-wrap">
+      <img class="ganpati-center" src="https://files.catbox.moe/e8wni1.png" alt="Ganpati Bappa" loading="lazy">
+    </div>
+
+    <section class="final" id="final">
+      <div class="section-inner royal-frame frame-corners final-frame">
+        <div class="section-kicker">A Day Made More Beautiful by You</div>
+        <h2>We Can’t Wait</h2>
+        <div class="ornament">❧ ✦ ❧</div>
+        <p>We can’t wait to celebrate this beautiful beginning with you. Your love, laughter and blessings will make our day unforgettable.</p>
+        <div class="final-sign">Priya &amp; Rohan</div>
+      </div>
+    </section>
+  </div>
 </div>
 
 <script>
@@ -472,10 +490,6 @@ h2 {
     musicBtn.setAttribute("aria-label", music.paused ? "Play background music" : "Pause background music");
   }
 
-  /*
-    The song attempts to start at 0:20, as requested earlier.
-    If the file is shorter than 20 seconds, it starts at the beginning.
-  */
   function startMusic() {
     music.volume = 0.85;
 
@@ -493,7 +507,6 @@ h2 {
       if (playPromise && playPromise.then) {
         playPromise.then(updateMusicButton).catch(() => {
           updateMusicButton();
-          console.warn("Music could not play. Check the Kur.mp4 path and file format.");
         });
       }
     };
@@ -503,7 +516,6 @@ h2 {
     } else {
       music.addEventListener("loadedmetadata", playSong, { once:true });
       music.load();
-      /* Also attempt immediately within the user's tap gesture. */
       const promise = music.play();
       if (promise && promise.then) {
         promise.then(updateMusicButton).catch(() => {});
@@ -524,18 +536,13 @@ h2 {
 
   music.addEventListener("play", updateMusicButton);
   music.addEventListener("pause", updateMusicButton);
-  music.addEventListener("error", () => {
-    console.error("Kur.mp4 could not be loaded. Check its GitHub filename and folder.");
-    updateMusicButton();
-  });
 
   function openInvite() {
     if (opened) return;
     opened = true;
 
-    /* Start the song and MOV from the same user tap. */
     startMusic();
-    movie.currentTime = 0;
+    movie.currentTime = 0.03;
     movie.muted = false;
 
     const hideCover = () => {
@@ -547,7 +554,6 @@ h2 {
 
     if (playMovie && playMovie.then) {
       playMovie.then(hideCover).catch(() => {
-        /* Muted playback fallback for browsers that block video sound. */
         movie.muted = true;
         const retry = movie.play();
         if (retry && retry.then) {
@@ -573,15 +579,14 @@ h2 {
     }
   });
 
-  /* Freeze one second before the MOV ends, then scroll to the first Ganpati. */
   function scrollToWebsite() {
     if (autoScrolled) return;
     autoScrolled = true;
     document.body.classList.remove("locked");
 
-    const firstGanpati = document.querySelector("#site > .ganpati-center-wrap");
+    const firstGanpati = document.querySelector("#site > .page-section");
     if (firstGanpati) {
-      firstGanpati.scrollIntoView({ behavior:"smooth", block:"center" });
+      firstGanpati.scrollIntoView({ behavior:"smooth", block:"start" });
     }
   }
 
@@ -603,7 +608,6 @@ h2 {
     }
   });
 
-  /* Petals and gold sparkles */
   const petalHost = document.getElementById("petals");
 
   function startPetalsAndSparkles() {
@@ -635,7 +639,6 @@ h2 {
     }
   }
 
-  /* Countdown: 3 January 2027, 4 PM Jaipur time */
   const target = new Date("2027-01-03T16:00:00+05:30").getTime();
 
   function updateCountdown() {
@@ -655,7 +658,6 @@ h2 {
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  /* Scratch card */
   const canvas = document.getElementById("scratchCanvas");
   const context = canvas.getContext("2d", { willReadFrequently:true });
   const wrap = document.getElementById("scratchWrap");
